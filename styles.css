@@ -125,3 +125,14 @@ main {
         font-size: 1.5em; /* Bigger social icons for smaller screens */
     }
 }
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust font size for mobile */
+    }
+    nav a {
+        font-size: 12px; /* Adjust nav font size */
+    }
+    .footer-links {
+        flex-direction: column; /* Stack footer items */
+    }
+}
