@@ -2,9 +2,11 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    /* Remove height: 100% to allow growth; add min-height instead */
+    min-height: 100vh; /* Ensures at least full viewport height */
+    overflow-y: auto; /* Enable scrolling when content overflows */
 }
 
 /* Navigation Bar */
@@ -26,7 +28,7 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping of nav items */
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -34,7 +36,7 @@ nav li {
 }
 
 nav a {
-    font-size: 1rem; /* Use rem for responsive font size */
+    font-size: 1rem;
     color: white;
     text-decoration: none;
     padding: 10px;
@@ -82,7 +84,7 @@ footer a:hover {
     margin: 10px 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping of footer links */
+    flex-wrap: wrap;
 }
 
 .footer-links li {
@@ -96,43 +98,50 @@ footer a:hover {
 
 /* Main Content Padding */
 body {
-    padding-top: 60px; /* Adjust for nav height */
-    padding-bottom: 60px; /* Adjust for footer height */
+    padding-top: 60px; /* Matches nav height */
+    padding-bottom: 100px; /* Increased to clear footer fully; adjust as needed */
 }
 
 /* Main Content Styling */
 main {
     text-align: center;
-    padding: 10px;
+    padding: 20px; /* More padding for breathing room */
+    min-height: calc(100vh - 160px); /* Ensures main fills space between nav and footer */
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
     nav a {
-        font-size: 0.9rem; /* Slightly smaller font for mobile */
+        font-size: 0.9rem;
         padding: 8px;
     }
 
     footer {
-        padding: 5px 0; /* Less padding for smaller screens */
+        padding: 5px 0;
     }
 
     .footer-links {
-        flex-direction: column; /* Stack footer links vertically */
+        flex-direction: column;
     }
 
     .footer-social a {
-        font-size: 1.5em; /* Bigger social icons for smaller screens */
+        font-size: 1.5em;
+    }
+
+    body {
+        padding-top: 50px; /* Smaller nav padding on mobile */
+        padding-bottom: 80px; /* Adjust for footer */
     }
 }
+
 @media (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust font size for mobile */
+        font-size: 14px;
     }
     nav a {
-        font-size: 12px; /* Adjust nav font size */
+        font-size: 12px;
     }
     .footer-links {
-        flex-direction: column; /* Stack footer items */
+        flex-direction: column;
     }
 }
