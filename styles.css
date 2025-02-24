@@ -1,0 +1,127 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    background-color: rgba(50, 50, 60);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.52);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping of nav items */
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    font-size: 1rem; /* Use rem for responsive font size */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: skyblue;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(50, 50, 60);
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.52);
+    z-index: 1000;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: skyblue;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping of footer links */
+}
+
+.footer-links li {
+    margin: 0 10px;
+}
+
+.footer-social a {
+    margin: 0 5px;
+    font-size: 1.2em;
+}
+
+/* Main Content Padding */
+body {
+    padding-top: 60px; /* Adjust for nav height */
+    padding-bottom: 60px; /* Adjust for footer height */
+}
+
+/* Main Content Styling */
+main {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav a {
+        font-size: 0.9rem; /* Slightly smaller font for mobile */
+        padding: 8px;
+    }
+
+    footer {
+        padding: 5px 0; /* Less padding for smaller screens */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Stack footer links vertically */
+    }
+
+    .footer-social a {
+        font-size: 1.5em; /* Bigger social icons for smaller screens */
+    }
+}
