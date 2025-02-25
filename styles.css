@@ -60,6 +60,98 @@ main {
     padding-top: 60px; /* Matches nav height to avoid overlap with fixed nav */
 }
 
+/* Hikes Container and Boxes */
+.hikes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with minimum 300px per box */
+    gap: 20px; /* Space between boxes */
+    padding: 20px;
+    max-width: 1200px; /* Optional: Limit container width on large screens */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Ensure 3 columns on larger screens (e.g., desktops) */
+@media (min-width: 1024px) {
+    .hikes-container {
+        grid-template-columns: repeat(3, 1fr); /* Explicitly set 3 columns on large screens for 3x3 grid */
+    }
+}
+
+.hike-box {
+    background-color: #f8f8f8; /* Light gray background for boxes */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside boxes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.hike-box:hover {
+    transform: translateY(-5px); /* Lift the box slightly on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.hike-box h2 {
+    color: #333; /* Dark text for headings */
+    margin-top: 0; /* Remove default margin */
+}
+
+.hike-box p {
+    margin: 10px 0; /* Spacing between paragraphs */
+    line-height: 1.6; /* Better readability */
+    color: #666; /* Slightly lighter text for paragraphs */
+}
+
+/* Gallery Container and Items */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with minimum 250px per item */
+    gap: 20px; /* Space between items */
+    padding: 20px;
+    max-width: 1200px; /* Limit container width on large screens */
+    margin: 0 auto; /* Center the container */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Lift the item slightly on hover */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.gallery-item img {
+    width: 100%; /* Fill the container width */
+    height: 300px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crop images to maintain aspect ratio and fit the fixed height */
+    transition: opacity 0.3s ease; /* Smooth opacity transition for hover effect */
+}
+
+.gallery-item:hover img {
+    opacity: 0.7; /* Slightly fade the image on hover to highlight caption */
+}
+
+.caption {
+    position: absolute;
+    bottom: -50px; /* Start below the image */
+    left: 0;
+    width: 100%;
+    background-color: rgba(50, 50, 60, 0.9); /* Dark semi-transparent background */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1em;
+    transition: bottom 0.3s ease; /* Smooth slide-up animation */
+}
+
+.gallery-item:hover .caption {
+    bottom: 0; /* Slide up to be visible on hover */
+}
+
 /* Ensure the image has some margin at the bottom to avoid overlap with footer */
 main img {
     max-width: 100%;
@@ -142,6 +234,33 @@ footer a:hover {
     main img {
         margin-bottom: 20px; /* Revert to smaller margin on mobile */
     }
+
+    /* Adjust gallery items for mobile */
+    .gallery-container {
+        grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+        padding: 10px;
+    }
+
+    .gallery-item {
+        padding: 10px; /* Slightly less padding on mobile */
+    }
+
+    .gallery-item img {
+        height: 200px; /* Smaller height on mobile for better fit */
+    }
+
+    .hikes-container {
+        grid-template-columns: 1fr; /* Stack boxes vertically on very small screens */
+        padding: 10px;
+    }
+
+    .hike-box {
+        padding: 15px; /* Slightly less padding on mobile */
+    }
+
+    .caption {
+        font-size: 1em; /* Smaller font on mobile */
+    }
 }
 
 @media (max-width: 768px) {
@@ -153,5 +272,29 @@ footer a:hover {
     }
     .footer-links {
         flex-direction: column;
+    }
+
+    /* Adjust gallery items for tablets */
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minimum width for tablets */
+    }
+
+    .gallery-item img {
+        height: 250px; /* Slightly smaller height on tablets */
+    }
+
+    /* Adjust hike boxes for tablets */
+    .hikes-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller minimum width for tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* Explicitly set 3 columns on large screens for a clean layout */
+    }
+
+    .hikes-container {
+        grid-template-columns: repeat(3, 1fr); /* Explicitly set 3 columns on large screens for 3x3 grid */
     }
 }
